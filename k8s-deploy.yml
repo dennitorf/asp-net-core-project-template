@@ -1,0 +1,28 @@
+---
+apiVersion: v1
+kind: Deployment
+metadata:      
+  name: companyname-project-service-name
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: companyname-project-service-name
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: companyname-project-service-name
+      name: companyname-project-service-name
+    spec:
+      containers:
+        name: companyname-project-service-name
+        image: companyname-project-service-name
+        ports:
+         - containerPort: 80
+           protocol: TCP
+           name: service-port
+        env:
+        - name : APPMODE
+          value: ${APPMODE}
+  
