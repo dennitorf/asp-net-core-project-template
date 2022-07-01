@@ -24,6 +24,8 @@ namespace CompanyName.ProjectName.Persistence.Configurations.Sample
             builder.Property(c => c.Name)
                 .HasMaxLength(50);
 
+            builder.HasOne(c => c.Todo);
+
             builder.ToTable("TodoItem");
         }
     }
