@@ -3,14 +3,14 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: companyname-project-service-name
-  name: companyname-project-service-name
+    app: CompanyName-ProjectName
+  name: CompanyName-ProjectName
   namespace: default
 spec:
   ports:
-  - name: companyname-project-service-name
+  - name: CompanyName-ProjectName
     port: 80
     targetPort: service-port
     protocol: TCP
   selector:
-    app: companyname-project-service-name
+    app: CompanyName-ProjectName
