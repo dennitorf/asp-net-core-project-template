@@ -7,6 +7,7 @@ namespace CompanyName.ProjectName.Application.Features.Todos.Queries.GetAllTodos
     public class TodoDto : IMapFrom<Todo>
     {
         public int Id { get; set; }
+        public string Name { set; get; }
         public DateTime CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime ModifiedDate { get; set; }
