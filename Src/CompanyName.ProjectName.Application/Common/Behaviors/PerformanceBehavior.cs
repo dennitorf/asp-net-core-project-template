@@ -11,7 +11,7 @@ namespace CompanyName.ProjectName.Application.Common.Behaviors
         private readonly Stopwatch timer;
         private readonly ILogger logger;
 
-        public PerformanceBehavior(ILogger logger)
+        public PerformanceBehavior(ILogger<PerformanceBehavior<TRequest, TResponse>> logger)
         {
             this.timer = new Stopwatch();
             this.logger = logger;

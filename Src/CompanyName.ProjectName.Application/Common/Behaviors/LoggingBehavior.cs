@@ -10,7 +10,7 @@ namespace CompanyName.ProjectName.Application.Common.Behaviors
     {
         private readonly ILogger logger;
 
-        public LoggingBehavior(ILogger logger)
+        public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
         {
             this.logger = logger;
         }

@@ -15,7 +15,7 @@ namespace CompanyName.ProjectName.Application.Features.Todos.Queries.GetAllTodos
         private ILogger logger;
         private IMapper mapper;
 
-        public GetAllTodosQueryHandler(AppDbContext db, ILogger logger, IMapper mapper)
+        public GetAllTodosQueryHandler(AppDbContext db, ILogger<GetAllTodosQueryHandler> logger, IMapper mapper)
         {
             this.db = db;
             this.logger = logger;
