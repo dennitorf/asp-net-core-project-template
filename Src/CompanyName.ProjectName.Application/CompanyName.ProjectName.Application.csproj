@@ -18,4 +18,8 @@
     <ProjectReference Include="..\CompanyName.ProjectName.Persistence\CompanyName.ProjectName.Persistence.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\TodoItems\" />
+  </ItemGroup>
+
 </Project>
