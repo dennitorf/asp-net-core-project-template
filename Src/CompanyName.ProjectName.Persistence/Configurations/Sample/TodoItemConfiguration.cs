@@ -19,10 +19,7 @@ namespace CompanyName.ProjectName.Persistence.Configurations.Sample
 
             builder.Property(c => c.ModifiedDate)
                 .IsRequired(true)
-                .HasDefaultValueSql("GETDATE()");
-
-            builder.Property(c => c.IsActive)
-                .HasDefaultValue(true);
+                .HasDefaultValueSql("GETDATE()");            
 
             builder.Property(c => c.Name)
                 .HasMaxLength(50);

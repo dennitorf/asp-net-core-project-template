@@ -1,6 +1,7 @@
 using CompanyName.ProjectName.Application;
 using CompanyName.ProjectName.Infrastructure;
 using CompanyName.ProjectName.Persistence;
+using CompanyName.ProjectName.WebApi.Filters.Exceptions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -37,6 +38,11 @@ namespace CompanyName.ProjectName.WebApi
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CompanyName.ProjectName.WebApi", Version = "v1" });
+            });
+
+            services.AddMvc(options => 
+            {
+                options.Filters.Add(typeof(ProjectNameCustomExceptionFilterAttribute));
             });
         }
 

@@ -1,4 +1,5 @@
 ﻿using CompanyName.ProjectName.Application.Features.Todos.Queries.GetAllTodos;
+using CompanyName.ProjectName.Application.Features.Todos.Queries.GetTodo;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -15,6 +16,13 @@ namespace CompanyName.ProjectName.WebApi.Controllers
         public async Task<IActionResult> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllTodosQuery() { }));
+        }
+
+        [HttpGet("{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(TodoDto))]
+        public async Task<IActionResult> Get([FromRoute]int id)
+        {
+            return Ok(await Mediator.Send(new GetTodoQuery() { Id = id }));
         }
     }
 }
