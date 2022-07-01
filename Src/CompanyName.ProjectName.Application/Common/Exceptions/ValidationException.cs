@@ -10,7 +10,7 @@ namespace CompanyName.ProjectName.Application.Common.Exceptions
         public ValidationException()
             : base("The request is invalid or incomplete.")
         {
-            Failures = new Dictionary<string, string[]>();
+            Errors = new Dictionary<string, string[]>();
         }
 
         public ValidationException(List<ValidationFailure> failures)
@@ -27,10 +27,10 @@ namespace CompanyName.ProjectName.Application.Common.Exceptions
                     .Select(e => e.ErrorMessage)
                     .ToArray();
 
-                Failures.Add(propertyName, propertyFailures);
+                Errors.Add(propertyName, propertyFailures);
             }
         }
 
-        public IDictionary<string, string[]> Failures { get; }
+        public IDictionary<string, string[]> Errors { get; }
     }
 }
