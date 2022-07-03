@@ -1,28 +1,23 @@
----
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
-metadata:      
-  name: companyname-project-service-name
+metadata:
+  labels:
+    run: ms-name
+  name: ms-name
   namespace: default
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: companyname-project-service-name
-  replicas: 1
+      run: ms-name
   template:
     metadata:
       labels:
-        app: companyname-project-service-name
-      name: companyname-project-service-name
+        run: ms-name
     spec:
       containers:
-        name: companyname-project-service-name
-        image: companyname-project-service-name
+      - name: ms-name
+        image: ms-name:latest
+        imagePullPolicy: IfNotPresent
         ports:
-         - containerPort: 80
-           protocol: TCP
-           name: service-port
-        env:
-        - name : APPMODE
-          value: ${APPMODE}
-  
+        - containerPort: 8080

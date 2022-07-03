@@ -17,6 +17,11 @@
       "replaces": "CompanyName",
       "FileRename": "CompanyName",
       "defaultValue": "CompanyName"
+    },
+    "ms-name": {
+      "type": "parameter",
+      "replaces": "ms-name",
+      "defaultValue": "ms-name"
     }
   },
   "sources": [
