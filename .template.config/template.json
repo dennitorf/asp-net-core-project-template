@@ -22,6 +22,11 @@
       "type": "parameter",
       "replaces": "ms-name",
       "defaultValue": "ms-name"
+    },
+    "acr-url": {
+      "type": "parameter",
+      "replaces": "acr-url",
+      "defaultValue": "hub.docker.com"
     }
   },
   "sources": [
