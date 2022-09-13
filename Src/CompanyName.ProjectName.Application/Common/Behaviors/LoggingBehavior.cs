@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompanyName.ProjectName.Application.Common.Behaviors
 {
-    public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse>
     {
         private readonly ILogger logger;
 
