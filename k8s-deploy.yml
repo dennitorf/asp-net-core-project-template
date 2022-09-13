@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-name
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: ms-name
+  template:
+    metadata:
+      labels:
+        component: ms-name
+    spec:
+      containers:
+        - name: ms-name
+          image: acr-url/ms-name:{BUILD_NO}
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 80

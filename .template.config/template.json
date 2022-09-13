@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Denny Rodriguez Fajardo",
+  "clasifications": [ "Web", "Solution" ],
+  "name": "Asp Net Core Microservice",
+  "shortname": "asp-net-core-microservice",
+  "defaultName": "ProjectName",
+  "identity": "asp-net-core-microservice-01",
+  "tags": {
+    "languague": "C#",
+    "type": "solution"
+  },
+  "sourceName": "ProjectName",
+  "symbols": {
+    "company-name": {
+      "type": "parameter",
+      "replaces": "CompanyName",
+      "FileRename": "CompanyName",
+      "defaultValue": "CompanyName"
+    },
+    "ms-name": {
+      "type": "parameter",
+      "replaces": "ms-name",
+      "defaultValue": "ms-name"
+    },
+    "acr-url": {
+      "type": "parameter",
+      "replaces": "acr-url",
+      "defaultValue": "hub.docker.com"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [ ".vs/**", ".git/**", ".template.config" ]
+        }
+      ]
+    }
+  ]
+
+}
