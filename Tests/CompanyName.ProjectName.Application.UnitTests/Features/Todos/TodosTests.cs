@@ -63,7 +63,7 @@ namespace CompanyName.ProjectName.Application.UnitTests.Features.Todos
             var command = new UpdateTodoCommand() { Id = 90, Name = "My todo 2" }; 
             var handler = new UpdateTodoCommandHandler(factory.CreateLogger<UpdateTodoCommandHandler>(), db, AutoMapperMock.mapper);            
             Assert.ThrowsAsync<NotFoundException>(async () => await handler.Handle(command, new CancellationToken()));                    
-        }
+        }        
     }
 }
 
