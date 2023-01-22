@@ -54,9 +54,7 @@ namespace CompanyName.ProjectName.Persistence
             {                                
                 cs = configuration.GetConnectionString("DatabaseConnectionString");
             }
-
-            Console.WriteLine($"CS: {cs}");
-
+                        
             return cs;
         }
     }
