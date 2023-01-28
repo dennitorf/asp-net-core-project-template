@@ -9,7 +9,7 @@ namespace CompanyName.ProjectName.WebApi.Controllers
         [HttpGet("GetHealthCheck")]
         public string Get()
         {
-            return "i'm helthy";
+            return "i'm healthy";
         }
 
         public StatusCodeResult DefaultResponse()
