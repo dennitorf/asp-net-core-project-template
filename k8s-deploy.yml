@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: ms-name
-          image: acr-url/ms-name-api:{BUILD_NO}
+          image: acr-url/ms-name:{BUILD_NO}
           imagePullPolicy: Always
           ports:
             - containerPort: 80
