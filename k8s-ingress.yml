@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:  
-  name: ms-name
+  name: ms-name-api
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"    
 spec:
@@ -13,6 +13,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: ms-name
+            name: ms-name-api
             port:
               number: 80          
