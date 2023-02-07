@@ -21,7 +21,9 @@ This layer contains the database responsability. Using the entities defined in D
 
 The changes on the DB are handled via migrations, feel free to create your own migrations following below command: 
 
-# dotnet ef migrations add NameOfMigration --project Src/CompanyName.ProjectName.Persistence/CompanyName.ProjectName.Persistence.csjproject
+```
+dotnet ef migrations add NameOfMigration --project Src/CompanyName.ProjectName.Persistence/CompanyName.ProjectName.Persistence.csjproject
+```
 
 ### Infrastructure
 
