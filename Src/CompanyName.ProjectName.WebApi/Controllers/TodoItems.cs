@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace CompanyName.ProjectName.WebApi.Controllers
 {
-    [Route("api/todos/{todoId}/[controller]")]
+    [Route("ns-ms-name/api/todos/{todoId}/[controller]")]
     [ApiController]
     public class TodoItems : BaseController
     {

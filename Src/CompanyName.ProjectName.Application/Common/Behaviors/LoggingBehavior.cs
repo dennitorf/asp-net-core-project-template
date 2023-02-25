@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace CompanyName.ProjectName.Application.Common.Behaviors
 {
-    public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse>
+    public class LoggingBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly ILogger logger;
 
         public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger)
         {
             this.logger = logger;
-        }
+        }        
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             var requestName = typeof(TRequest);
 
@@ -26,7 +26,6 @@ namespace CompanyName.ProjectName.Application.Common.Behaviors
             logger.LogInformation("CompanyName.ProjectName {Name} Completed", requestName);
 
             return response;
-
         }
     }
 }

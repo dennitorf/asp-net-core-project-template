@@ -1,20 +1,29 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ms-name
+  name: ms-name-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      component: ms-name
+      component: ms-name-api
   template:
     metadata:
       labels:
-        component: ms-name
+        component: ms-name-api
     spec:
       containers:
-        - name: ms-name
-          image: acr-url/ms-name:{BUILD_NO}
-          imagePullPolicy: IfNotPresent
+        - name: ms-name-api
+          image: acr-url/ms-name-api:{BUILD_NO}
+          imagePullPolicy: Always
           ports:
             - containerPort: 80
+          env:
+            - name: DB_DATABASE
+              value: {DB_DATABASE}
+            - name: DB_PASSWORD
+              value: {DB_PASSWORD}
+            - name: DB_SERVER
+              value: {DB_SERVER}
+            - name: DB_USER
+              value: {DB_USER}

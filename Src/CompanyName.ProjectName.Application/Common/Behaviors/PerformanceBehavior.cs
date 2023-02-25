@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CompanyName.ProjectName.Application.Common.Behaviors
 {
-    public class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : MediatR.IRequest<TResponse>
+    public class PerformanceBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
     {
         private readonly Stopwatch timer;
         private readonly ILogger logger;
@@ -15,9 +15,9 @@ namespace CompanyName.ProjectName.Application.Common.Behaviors
         {
             this.timer = new Stopwatch();
             this.logger = logger;
-        }
+        }        
 
-        public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
         {
             timer.Start();
 
