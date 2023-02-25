@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using CompanyName.ProjectName.Persistence.Contexts;
+using CompanyName.ProjectName.Persistence.Seeders;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -26,7 +27,10 @@ namespace CompanyName.ProjectName.WebApi
                     if (context.Database.IsSqlServer())
                     {
                         await context.Database.MigrateAsync();
-                    }
+                        
+                        var seeder = new AppDbContextSeeder();
+                        seeder.SeedEverything(context);
+                    }                    
 
                 }
                 catch (Exception ex)
