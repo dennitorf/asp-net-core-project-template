@@ -3,11 +3,7 @@
 namespace CompanyName.ProjectName.Persistence.Seeders
 {
     public class AppDbContextSeeder
-    {
-        public static void Initialize(AppDbContext db)
-        {
-            var intitializer = new AppDbContextSeeder();
-        }
+    {        
 
         public void SeedEverything(AppDbContext db)
         { 
