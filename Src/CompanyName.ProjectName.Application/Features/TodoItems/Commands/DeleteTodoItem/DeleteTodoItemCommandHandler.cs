@@ -22,7 +22,7 @@ namespace CompanyName.ProjectName.Application.Features.TodoItems.Commands.Delete
             this.mapper = mapper;
         }
 
-        public async Task<Unit> Handle(DeleteTodoItemCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteTodoItemCommand request, CancellationToken cancellationToken)
         {
             var ent = await db.TodoItems.FindAsync(request.Id);
 
@@ -32,7 +32,7 @@ namespace CompanyName.ProjectName.Application.Features.TodoItems.Commands.Delete
             db.TodoItems.Remove(ent);
             await db.SaveChangesAsync(cancellationToken);
 
-            return Unit.Task.Result;
+            return;
         }
     }
 }

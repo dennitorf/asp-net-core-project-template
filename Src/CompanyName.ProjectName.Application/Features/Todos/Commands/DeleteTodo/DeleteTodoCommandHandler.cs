@@ -4,6 +4,7 @@ using CompanyName.ProjectName.Domain.Entities.Sample;
 using CompanyName.ProjectName.Persistence.Contexts;
 using MediatR;
 using Microsoft.Extensions.Logging;
+using System;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -22,7 +23,7 @@ namespace CompanyName.ProjectName.Application.Features.Todos.Commands.DeleteTodo
             this.mapper = mapper;
         }
 
-        public async Task<Unit> Handle(DeleteTodoCommand request, CancellationToken cancellationToken)
+        public async Task Handle(DeleteTodoCommand request, CancellationToken cancellationToken)
         {
             var ent = await db.Todos.FindAsync(request.Id);
 
@@ -32,7 +33,7 @@ namespace CompanyName.ProjectName.Application.Features.Todos.Commands.DeleteTodo
             db.Todos.Remove(ent);
             await db.SaveChangesAsync(cancellationToken);
 
-            return Unit.Task.Result;
+            return;
         }
     }
 }
