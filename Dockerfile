@@ -5,7 +5,7 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 COPY ["Src/CompanyName.ProjectName.WebApi/CompanyName.ProjectName.WebApi.csproj", "Src/CompanyName.ProjectName.WebApi/"]
 COPY ["Src/CompanyName.ProjectName.Application/CompanyName.ProjectName.Application.csproj", "Src/CompanyName.ProjectName.Application/"]
