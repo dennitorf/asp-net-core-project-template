@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using CompanyName.ProjectName.Application.Common.Exceptions;
 using CompanyName.ProjectName.Application.Features.Todos.Commands.UpdateTodo;
+using NUnit.Framework.Legacy;
 
 namespace CompanyName.ProjectName.Application.UnitTests.Features.Todos 
 {
@@ -35,7 +36,7 @@ namespace CompanyName.ProjectName.Application.UnitTests.Features.Todos
 
             var obj = await handler.Handle(command, new CancellationToken());
 
-            Assert.AreEqual(obj.Name, "My todo 1");            
+            ClassicAssert.AreEqual(obj.Name, "My todo 1");            
         }
 
         [Test]
@@ -54,7 +55,7 @@ namespace CompanyName.ProjectName.Application.UnitTests.Features.Todos
 
             var obj = await handler.Handle(command, new CancellationToken());
 
-            Assert.AreEqual(obj.Name, "My todo 2");            
+            ClassicAssert.AreEqual(obj.Name, "My todo 2");            
         }
 
         [Test]
