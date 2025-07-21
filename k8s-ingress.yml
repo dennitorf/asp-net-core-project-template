@@ -3,11 +3,13 @@ kind: Ingress
 metadata:  
   name: ms-name-api
   annotations:
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"    
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/x-forwarded-proto: "https"   
 spec:
-  ingressClassName: nginx
   rules:
-  - http:
+  - host: {HOST}
+    http:
       paths:
       - path: /ns-ms-name
         pathType: Prefix
@@ -15,4 +17,8 @@ spec:
           service:
             name: ms-name-api
             port:
-              number: 80          
+              number: 80
+  tls:
+  - hosts:
+    - {HOST}
+    secretName: ms-name-api-tls

@@ -40,9 +40,22 @@ namespace CompanyName.ProjectName.WebApi
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CompanyName.ProjectName.WebApi", Version = "v1" });
             });
 
-            services.AddMvc(options => 
+            services.AddMvc(options =>
             {
                 options.Filters.Add(typeof(ProjectNameCustomExceptionFilterAttribute));
+            });
+            
+            var allowedOrigins = !String.IsNullOrEmpty(Configuration["CORS_ORIGINS"]) ? Configuration["CORS_ORIGINS"].Split(",") : new string[] { "http://localhost:3000" };
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsPolicy", builder =>
+                {
+                    builder.WithOrigins(allowedOrigins)
+                           .AllowAnyMethod()
+                           .AllowAnyHeader()
+                           .AllowCredentials();
+                });
             });
         }
 
@@ -59,6 +72,8 @@ namespace CompanyName.ProjectName.WebApi
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();
 

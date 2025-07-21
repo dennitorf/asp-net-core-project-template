@@ -27,3 +27,17 @@ spec:
               value: {DB_SERVER}
             - name: DB_USER
               value: {DB_USER}
+            - name: CORS_ORIGINS
+              value: "{CORS_ORIGINS}"
+            - name: ASPNETCORE_Kestrel__Certificates__Default__Path
+              value: "/etc/ssl/certs/tls.crt"
+            - name: ASPNETCORE_Kestrel__Certificates__Default__KeyPath
+              value: "/etc/ssl/certs/tls.key"
+          volumeMounts:
+            - name: tls-secret
+              mountPath: "/etc/ssl/certs"
+              readOnly: true
+      volumes:
+        - name: tls-secret
+          secret:
+            secretName: ms-name-api-tls
